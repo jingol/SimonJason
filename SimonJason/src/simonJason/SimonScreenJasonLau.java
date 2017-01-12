@@ -43,10 +43,10 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 		prog.setSequenceSize(seq.size());
 		prog.setRound(round);
 		changeText("Simon's Turn");
-		changeText("");
+		text.setText("");
 		playSequence();
 		changeText("Your Turn");
-		changeText("");
+		text.setText("");
 		inputAccepted = true;
 		seqIndex = 0;
 	}
