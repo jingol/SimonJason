@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-import gui.components.Action;
-import gui.components.Components;
+import guiCompononets.Action;
+import guiCompononets.Component;
 
-public class Button extends Components implements ButtonInterfaceJasonLau {
+public class Button extends Component implements ButtonInterfaceJasonLau {
 	private static int w = 40;
 	private static int h = 40;
 	private static int x;
@@ -57,11 +57,7 @@ public class Button extends Components implements ButtonInterfaceJasonLau {
 		Button.y = y;
 	}
 
-	@Override
-	public void setAction(Action a) {
-		// TODO Auto-generated method stub
-		this.act = a;
-	}
+	
 
 	@Override
 	public void highlight() {
@@ -97,6 +93,12 @@ public class Button extends Components implements ButtonInterfaceJasonLau {
 			g.setColor(Color.black);
 			g.drawOval(x, y, w - 1, h -1);
 		}
+		
+	}
+
+	@Override
+	public void setAction(Action a) {
+		// TODO Auto-generated method stub
 		
 	}
 

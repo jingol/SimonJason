@@ -8,9 +8,9 @@ import java.awt.RenderingHints;
 import java.text.AttributedCharacterIterator.Attribute;
 import java.util.Map;
 
-import gui.components.Components;
+import guiCompononets.Component;
 
-public class Progress extends Components implements ProgressInterfaceJasonLau {
+public abstract class Progress extends Component implements ProgressInterfaceJasonLau {
 	
 	private boolean gameOver;
 	private static int height = 50;
@@ -69,5 +69,7 @@ public class Progress extends Components implements ProgressInterfaceJasonLau {
 			g.drawString("Game Over!", (width - fm.stringWidth("Game Over!"))/2, 30);
 		}
 	}
+
+	
 
 }
