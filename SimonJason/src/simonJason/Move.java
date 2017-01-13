@@ -2,15 +2,15 @@ package simonJason;
 
 public class Move implements MoveInterfaceJasonLau {
 
-	private ButtonInterfaceDavidS b;
+	private ButtonInterfaceJasonLau b;
 	
-	public Move(ButtonInterfaceDavidS b) {
+	public Move(ButtonInterfaceJasonLau b) {
 		// TODO Auto-generated constructor stub
 		this.b = b;
 	}
 
 	@Override
-	public ButtonInterfaceDavidS getButton() {
+	public ButtonInterfaceJasonLau getButton() {
 		// TODO Auto-generated method stub
 		return b;
 	}
