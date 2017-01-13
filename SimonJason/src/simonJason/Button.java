@@ -1,4 +1,4 @@
-package simonDavidS;
+package simonJason;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import gui.components.Action;
 import gui.components.Components;
 
-public class Button extends Components implements ButtonInterfaceDavidS {
+public class Button extends Components implements ButtonInterfaceJasonLau {
 	private static int w = 40;
 	private static int h = 40;
 	private static int x;
