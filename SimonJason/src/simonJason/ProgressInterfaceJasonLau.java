@@ -9,5 +9,7 @@ public interface ProgressInterfaceJasonLau extends Visible {
 	void setSequenceSize(int size);
 
 	void setRound(int round);
+	
+	void update(Graphics2D g);
 
 }
