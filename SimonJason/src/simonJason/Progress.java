@@ -10,7 +10,7 @@ import java.util.Map;
 
 import guiCompononets.Component;
 
-public abstract class Progress extends Component implements ProgressInterfaceJasonLau {
+public class Progress extends Component implements ProgressInterfaceJasonLau {
 	
 	private boolean gameOver;
 	private static int height = 50;
