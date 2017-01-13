@@ -16,7 +16,7 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 	public ProgressInterfaceJasonLau prog;
 	public ArrayList<MoveInterfaceJasonLau> seq;
 	public ButtonInterfaceJasonLau[] butts;
-	public TextLabel text;
+	public TextLabel label;
 
 	public int round;
 	public int seqIndex;
@@ -25,14 +25,14 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 	
 
 	public SimonScreenJasonLau(int width, int height) {
-		super(width, height);
+		super(height, height);
 		Thread game = new Thread(this);
 		game.start();
 	}
 
 	@Override
 	public void run() {
-		text.setText("");
+		
 		nextRound();
 	}
 
@@ -43,10 +43,10 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 		prog.setSequenceSize(seq.size());
 		prog.setRound(round);
 		changeText("Simon's Turn");
-		text.setText("");
+		label.setText("");
 		playSequence();
 		changeText("Your Turn");
-		text.setText("");
+		label.setText("");
 		inputAccepted = true;
 		seqIndex = 0;
 	}
@@ -71,8 +71,8 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 		
 	}
 
-	private void changeText(String string) {
-		text.setText(string);
+	public void changeText(String string) {
+		label.setText(string);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -83,9 +83,9 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		addButtons();
+		addButtons(viewObjects);
 		prog = getProgress();
-		text = new TextLabel(130,230,300,40,"Let's play Simon!");
+		label = new TextLabel(130,230,300,40,"Let's play Simon!");
 		seq = new ArrayList<MoveInterfaceJasonLau>();
 		//add 2 moves to start
 		lastSelectedButton = -1;
@@ -93,21 +93,21 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 		seq.add(randomMove());
 		round = 0;
 		viewObjects.add(prog);
-		viewObjects.add(text);
+		viewObjects.add(label);
 
 	}
 
 	private MoveInterfaceJasonLau randomMove() {
 		ButtonInterfaceJasonLau b;
-		int rdmidx = (int)(Math.random() * seq.size());
+		int rdmidx = (int)(Math.random() * butts.length);
 		while(rdmidx == lastSelectedButton){
-			rdmidx = (int)(Math.random() * seq.size());
+			rdmidx = (int)(Math.random() * butts.length);
 		}
 		b = butts[rdmidx];
 		return getMove(b);
 	}
 
-	private void addButtons() {
+	private void addButtons(List<Visible> viewObjects) {
 		int buttonnum = 5;
 		Color[] buttcolors = {Color.BLUE,Color.YELLOW,Color.RED,Color.GREEN,Color.PINK};
 		int[] xcord = {85,50,120,50,120};
