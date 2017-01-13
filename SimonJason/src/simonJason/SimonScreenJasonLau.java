@@ -161,7 +161,7 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 
 	private MoveInterfaceJasonLau getMove(ButtonInterfaceJasonLau b) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Move(b);
 	}
 
 	@Override
@@ -170,11 +170,11 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 	}
 	
 	public ButtonInterfaceJasonLau getAButton(){
-		return null;
+		return new Button();
 	}
 	
 	public ProgressInterfaceJasonLau getProgress(){
-		return null;
+		return new Progress();
 		
 	}
 	
