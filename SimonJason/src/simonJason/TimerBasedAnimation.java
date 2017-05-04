@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -32,6 +33,7 @@ public class TimerBasedAnimation extends JPanel implements ActionListener {
     timer = new Timer(20, this);
     timer.setInitialDelay(190);
     timer.start();
+    JButton b=new JButton("Click Here");  
   }
 
   public void setXY(double size, int w, int h) {
