@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import guiCompononets.Action;
-import guiCompononets.ClickableGraphic;
 import guiCompononets.TextLabel;
 import guiCompononets.Visible;
 import guiScreens.ClickableScreen;
@@ -13,15 +12,15 @@ import guiScreens.ClickableScreen;
 
 public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 	
-	public ProgressInterfaceJasonLau prog;
-	public ArrayList<MoveInterfaceJasonLau> seq;
-	public ButtonInterfaceJasonLau[] butts;
-	public TextLabel label;
+	private ProgressInterfaceJasonLau prog;
+	private ArrayList<MoveInterfaceJasonLau> seq;
+	private ButtonInterfaceJasonLau[] buttons;
+	private TextLabel label;
 
-	public int round;
-	public int seqIndex;
-	public boolean inputAccepted;
-	public int lastSelectedButton;
+	private int round;
+	private int seqIndex;
+	private boolean inputAccepted;
+	private int lastSelectedButton;
 	
 
 	public SimonScreenJasonLau(int width, int height) {
@@ -32,7 +31,7 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 
 	@Override
 	public void run() {
-		
+		changeText("");
 		nextRound();
 	}
 
@@ -84,6 +83,9 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons(viewObjects);
+		for(int i = 0; i < buttons.length; i++){
+			viewObjects.add(buttons[i]);
+		}
 		prog = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
 		seq = new ArrayList<MoveInterfaceJasonLau>();
@@ -99,11 +101,12 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 
 	private MoveInterfaceJasonLau randomMove() {
 		ButtonInterfaceJasonLau b;
-		int rdmidx = (int)(Math.random() * butts.length);
+		int rdmidx;
+		rdmidx = (int)(Math.random() * buttons.length);
 		while(rdmidx == lastSelectedButton){
-			rdmidx = (int)(Math.random() * butts.length);
+			rdmidx = (int)(Math.random() * buttons.length);
 		}
-		b = butts[rdmidx];
+		b = buttons[rdmidx];
 		return getMove(b);
 	}
 
@@ -164,7 +167,7 @@ public class SimonScreenJasonLau extends ClickableScreen implements Runnable {
 		return new Move(b);
 	}
 
-	@Override
+
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		
 	}
